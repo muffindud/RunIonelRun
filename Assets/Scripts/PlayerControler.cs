@@ -16,7 +16,7 @@ public class PlayerControler : MonoBehaviour
     void Update()
     {
         moveInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-        moveInput = moveInput.normalized;
+        moveInput.Normalize();
         // var pos = transform.position;
         // pos.x += moveInput.x * moveSpeed * Time.deltaTime;
         // pos.y += moveInput.y * moveSpeed * Time.deltaTime;
