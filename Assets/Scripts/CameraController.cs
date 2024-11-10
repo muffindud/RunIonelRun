@@ -4,11 +4,18 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    public GameObject player;
+    public Transform target;
+    public float smoothSpeed = 0.125f;
+    public Vector2 locationOffset;
+    public Vector2 rotationOffset;
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        transform.position = new Vector3(player.transform.position.x, player.transform.position.y, transform.position.z);
+        Vector3 desiredPosition = target.position + new Vector3(locationOffset.x, locationOffset.y, -10);
+        Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
+        transform.position = smoothedPosition;
+
+        Quaternion desiredRotation = Quaternion.Euler(rotationOffset.x, rotationOffset.y, 0);
+        transform.rotation = Quaternion.Lerp(transform.rotation, desiredRotation, smoothSpeed);
     }
 }
