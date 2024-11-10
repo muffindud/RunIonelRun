@@ -6,14 +6,21 @@ public class PlayerControler : MonoBehaviour
 {
     public float moveSpeed;
     Vector2 moveInput;
+    Rigidbody2D rb;
+
+    void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
 
     void Update()
     {
         moveInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         moveInput = moveInput.normalized;
-        var pos = transform.position;
-        pos.x += moveInput.x * moveSpeed * Time.deltaTime;
-        pos.y += moveInput.y * moveSpeed * Time.deltaTime;
-        transform.position = pos;
+        // var pos = transform.position;
+        // pos.x += moveInput.x * moveSpeed * Time.deltaTime;
+        // pos.y += moveInput.y * moveSpeed * Time.deltaTime;
+        // transform.position = pos;
+        rb.velocity = moveInput * moveSpeed;
     }
 }
