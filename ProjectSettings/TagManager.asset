@@ -13,7 +13,7 @@ TagManager:
   - UI
   - 
   - SolidObjects
-  - 
+  - Foreground
   - 
   - 
   - 
@@ -46,4 +46,7 @@ TagManager:
     locked: 0
   - name: Foreground
     uniqueID: 2652684601
+    locked: 0
+  - name: New Layer 3
+    uniqueID: 3125292981
     locked: 0
