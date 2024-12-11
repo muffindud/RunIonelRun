@@ -13,23 +13,17 @@ public class PlayerControler : MonoBehaviour
 
     public Sprite frontStaticSprite;
     public Sprite[] frontWalkSprites;
-    public Sprite backStaticSprite;
-    public Sprite[] backWalkSprites;
     public Sprite sideStaticSprite; // default is right
     public Sprite[] sideWalkSprites;
 
-    Sprite getSprite(Vector2 direction, bool isWalking)
+    AudioSource audioSource;
+    public AudioClip stepSound;
+
+    Sprite GetSprite(Vector2 direction, bool isWalking)
     {
         sr.flipX = false;
-        if (direction.y > 0)
-        {
-            return isWalking ? backWalkSprites[(int)(Time.time * animationSpeed) % backWalkSprites.Length] : backStaticSprite;
-        }
-        else if (direction.y < 0)
-        {
-            return isWalking ? frontWalkSprites[(int)(Time.time * animationSpeed) % frontWalkSprites.Length] : frontStaticSprite;
-        }
-        else if (direction.x > 0)
+
+        if (direction.x > 0)
         {
             return isWalking ? sideWalkSprites[(int)(Time.time * animationSpeed) % sideWalkSprites.Length] : sideStaticSprite;
         }
@@ -37,6 +31,9 @@ public class PlayerControler : MonoBehaviour
         {
             sr.flipX = true;
             return isWalking ? sideWalkSprites[(int)(Time.time * animationSpeed) % sideWalkSprites.Length] : sideStaticSprite;
+        }
+        else if (direction.y != 0) {
+            return isWalking ? frontWalkSprites[(int)(Time.time * animationSpeed) % frontWalkSprites.Length] : frontStaticSprite;
         }
 
         return frontStaticSprite;
@@ -46,15 +43,23 @@ public class PlayerControler : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
+        audioSource = GetComponent<AudioSource>();
+        audioSource.clip = stepSound;
 
         sr.sprite = frontStaticSprite;
     }
 
     void Update()
     {
+        bool isWalking = moveInput != Vector2.zero;
         moveInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         moveInput.Normalize();
         rb.velocity = moveInput * moveSpeed;
-        sr.sprite = getSprite(moveInput, moveInput != Vector2.zero);
+        sr.sprite = GetSprite(moveInput, isWalking);
+
+        if (isWalking && !audioSource.isPlaying)
+        {
+            audioSource.Play();
+        }
     }
 }
