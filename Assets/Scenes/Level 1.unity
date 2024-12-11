@@ -14278,7 +14278,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1760693555}
   rb: {fileID: 0}
-  moveSpeed: 2
+  moveSpeed: 4.23
   sr: {fileID: 0}
   frontStaticSprite: {fileID: 21300000, guid: b36cb7ec453475c45a4430a48e678238, type: 3}
   frontWalkSprites:
