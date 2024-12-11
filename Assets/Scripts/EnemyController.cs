@@ -9,7 +9,6 @@ public class EnemyController : MonoBehaviour
 
     [Range(0.0f, 2.0f)]
     public float moveSpeed = 1.0f;
-
     public SpriteRenderer sr;
 
     const float animationSpeed = 5.0f;
@@ -24,19 +23,19 @@ public class EnemyController : MonoBehaviour
     Sprite getSprite(Vector2 direction, bool isWalking)
     {
         sr.flipX = false;
-        if (direction.y > 0)
+        if (direction.y > 0 && Mathf.Abs(direction.y) > Mathf.Abs(direction.x))
         {
             return isWalking ? backWalkSprites[(int)(Time.time * animationSpeed) % backWalkSprites.Length] : backStaticSprite;
         }
-        else if (direction.y < 0)
+        else if (direction.y < 0 && Mathf.Abs(direction.y) > Mathf.Abs(direction.x))
         {
             return isWalking ? frontWalkSprites[(int)(Time.time * animationSpeed) % frontWalkSprites.Length] : frontStaticSprite;
         }
-        else if (direction.x > 0)
+        else if (direction.x > 0 && Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
         {
             return isWalking ? sideWalkSprites[(int)(Time.time * animationSpeed) % sideWalkSprites.Length] : sideStaticSprite;
         }
-        else if (direction.x < 0)
+        else if (direction.x < 0 && Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
         {
             sr.flipX = true;
             return isWalking ? sideWalkSprites[(int)(Time.time * animationSpeed) % sideWalkSprites.Length] : sideStaticSprite;
@@ -49,6 +48,8 @@ public class EnemyController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
+
+        sr.sprite = frontStaticSprite;
     }
 
     void Update()
@@ -56,7 +57,6 @@ public class EnemyController : MonoBehaviour
         Vector2 direction = player.transform.position - transform.position;
         direction.Normalize();
         rb.velocity = direction * moveSpeed;
-
-        sr.sprite = getSprite(direction, direction.magnitude > 0);
+        sr.sprite = getSprite(direction, direction != Vector2.zero);
     }
 }

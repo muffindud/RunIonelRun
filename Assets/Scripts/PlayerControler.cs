@@ -55,6 +55,6 @@ public class PlayerControler : MonoBehaviour
         moveInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         moveInput.Normalize();
         rb.velocity = moveInput * moveSpeed;
-        sr.sprite = getSprite(moveInput, moveInput.magnitude > 0);
+        sr.sprite = getSprite(moveInput, moveInput != Vector2.zero);
     }
 }
