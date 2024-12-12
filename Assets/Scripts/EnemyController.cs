@@ -7,7 +7,7 @@ public class EnemyController : MonoBehaviour
     public GameObject player;
     public Rigidbody2D rb;
 
-    [Range(0.0f, 2.0f)]
+    [Range(0.0f, 5.0f)]
     public float moveSpeed = 1.0f;
     public SpriteRenderer sr;
 
