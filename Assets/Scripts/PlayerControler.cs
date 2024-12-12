@@ -61,5 +61,10 @@ public class PlayerControler : MonoBehaviour
         {
             audioSource.Play();
         }
+
+        if (Input.GetKey("escape"))
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene("Main Menu");
+        }
     }
 }
