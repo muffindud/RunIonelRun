@@ -4,13 +4,8 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    public GameObject player;
-    public Rigidbody2D rb;
-
-    [Range(0.0f, 5.0f)]
-    public float moveSpeed = 1.0f;
+    public GameObject target;
     public SpriteRenderer sr;
-
     const float animationSpeed = 5.0f;
 
     public Sprite frontStaticSprite;
@@ -36,7 +31,6 @@ public class EnemyController : MonoBehaviour
 
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
 
         sr.sprite = frontStaticSprite;
@@ -44,9 +38,7 @@ public class EnemyController : MonoBehaviour
 
     void Update()
     {
-        Vector2 direction = player.transform.position - transform.position;
-        direction.Normalize();
-        rb.velocity = direction * moveSpeed;
+        Vector2 direction = target.transform.position - transform.position;
         sr.sprite = GetSprite(direction, direction != Vector2.zero);
     }
 }
