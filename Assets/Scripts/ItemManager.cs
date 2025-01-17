@@ -28,6 +28,10 @@ public class ItemManager : MonoBehaviour
         for (int i = 0; i < keyCount; i++)
         {
             int randomIndex = Random.Range(0, possibleKeyPositionsCount);
+            while (keyPositions.Contains(possibleKeyPositions[randomIndex]))
+            {
+                randomIndex = Random.Range(0, possibleKeyPositionsCount);
+            }
             keyPositions.Add(possibleKeyPositions[randomIndex]);
         }
 
