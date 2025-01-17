@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Schema;
 using UnityEngine;
 
 public class PlayerControler : MonoBehaviour
@@ -18,6 +19,11 @@ public class PlayerControler : MonoBehaviour
 
     AudioSource audioSource;
     public AudioClip stepSound;
+
+
+    public GameObject itemManager;
+    public int keysHeld = 0;
+    private int totalKeys;
 
     Sprite GetSprite(Vector2 direction, bool isWalking)
     {
@@ -45,6 +51,7 @@ public class PlayerControler : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         audioSource = GetComponent<AudioSource>();
         audioSource.clip = stepSound;
+        totalKeys = itemManager.GetComponent<ItemManager>().keyCount;
 
         sr.sprite = frontStaticSprite;
     }
