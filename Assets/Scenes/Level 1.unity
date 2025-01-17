@@ -22471,6 +22471,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: b4d26d0f033ec0446b6c62c3f38fcd1a, type: 3}
   - {fileID: 21300000, guid: 894824905ee02d14685bedf58fec2cc8, type: 3}
   stepSound: {fileID: 8300000, guid: 8181cfabfacbb834795cfa36ddc8fd02, type: 3}
+  keyPickupSound: {fileID: 8300000, guid: 2ba3fabac34f4544ca816865b3f16b6e, type: 3}
   itemManager: {fileID: 210951422}
   keysHeld: 0
 --- !u!61 &1760693559
@@ -23046,7 +23047,7 @@ MonoBehaviour:
   radius: 0.2
   height: 2
   canMove: 1
-  maxSpeed: 4
+  maxSpeed: 3.5
   gravity: {x: NaN, y: NaN, z: NaN}
   groundMask:
     serializedVersion: 2

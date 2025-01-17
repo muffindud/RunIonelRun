@@ -15,7 +15,7 @@ public class Key : MonoBehaviour
     {
         if (Vector2.Distance(player.transform.position, transform.position) < 1f)
         {
-            player.GetComponent<PlayerControler>().keysHeld++;
+            player.GetComponent<PlayerControler>().PickUpKey();
             Destroy(gameObject);
         }
     }

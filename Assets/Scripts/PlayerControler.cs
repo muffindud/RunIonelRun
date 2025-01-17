@@ -21,6 +21,7 @@ public class PlayerControler : MonoBehaviour
     public AudioClip stepSound;
 
 
+    public AudioClip keyPickupSound;
     public GameObject itemManager;
     public int keysHeld = 0;
     private int totalKeys;
@@ -43,6 +44,12 @@ public class PlayerControler : MonoBehaviour
         }
 
         return frontStaticSprite;
+    }
+
+    public void PickUpKey()
+    {
+        keysHeld++;
+        audioSource.PlayOneShot(keyPickupSound, 0.5f);
     }
 
     void Start()
