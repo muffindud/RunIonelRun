@@ -9,6 +9,7 @@ public class PlayerControler : MonoBehaviour
     Vector2 moveInput;
     Rigidbody2D rb;
     SpriteRenderer sr;
+    BoxCollider2D exitCollider;
 
     const float animationSpeed = 7.5f;
 
@@ -62,6 +63,7 @@ public class PlayerControler : MonoBehaviour
         audioSource.clip = stepSound;
         totalKeys = itemManager.GetComponent<ItemManager>().keyCount;
         doorManager = GameObject.Find("Door");
+        exitCollider = GameObject.Find("Exit").GetComponent<BoxCollider2D>();
 
         sr.sprite = frontStaticSprite;
     }
@@ -93,6 +95,12 @@ public class PlayerControler : MonoBehaviour
                     doorManager.GetComponent<DoorManager>().OpenDoor();
                 }
             }
+        }
+
+        // touching the exit
+        if (exitCollider.IsTouching(GetComponent<BoxCollider2D>()))
+        {
+            Debug.Log("Exit");
         }
     }
 }
