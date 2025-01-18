@@ -9,8 +9,8 @@ public class MenuController : MonoBehaviour
         Application.Quit();
     }
 
-    public void LoadLevel1()
+    public void LoadGameSelect()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Level 1");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Game Select");
     }
 }

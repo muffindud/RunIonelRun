@@ -9,13 +9,8 @@ public class GameOverController : MonoBehaviour
         UnityEngine.SceneManagement.SceneManager.LoadScene("Main Menu");
     }
 
-    public void LoadLevel1()
+    public void LoadGameSelect()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Level 1");
-    }
-
-    public void LoadLevelHard()
-    {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Level Hard");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Game Select");
     }
 }
