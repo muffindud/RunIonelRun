@@ -11,6 +11,6 @@ public class GameSelect : MonoBehaviour
 
     public void LoadHard()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Level Hard");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("LevelHard");
     }
 }
