@@ -25,7 +25,7 @@ public class PlayerControler : MonoBehaviour
     public AudioClip keyPickupSound;
     public GameObject itemManager;
     public int keysHeld = 0;
-    private int totalKeys;
+    public int totalKeys;
 
     public GameObject doorManager;
 
