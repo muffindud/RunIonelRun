@@ -26,6 +26,8 @@ public class PlayerControler : MonoBehaviour
     public int keysHeld = 0;
     private int totalKeys;
 
+    public GameObject doorManager;
+
     Sprite GetSprite(Vector2 direction, bool isWalking)
     {
         sr.flipX = false;
@@ -59,6 +61,7 @@ public class PlayerControler : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         audioSource.clip = stepSound;
         totalKeys = itemManager.GetComponent<ItemManager>().keyCount;
+        doorManager = GameObject.Find("Door");
 
         sr.sprite = frontStaticSprite;
     }
@@ -76,9 +79,20 @@ public class PlayerControler : MonoBehaviour
             audioSource.Play();
         }
 
-        if (Input.GetKey("escape"))
+        if (Input.GetKey(KeyCode.Escape))
         {
             UnityEngine.SceneManagement.SceneManager.LoadScene("Main Menu");
+        }
+
+        // if close to the door
+        if (Vector2.Distance(transform.position, doorManager.transform.position) < 1f) {
+            if (Input.GetKey(KeyCode.F))
+            {
+                if (keysHeld == totalKeys)
+                {
+                    doorManager.GetComponent<DoorManager>().OpenDoor();
+                }
+            }
         }
     }
 }
