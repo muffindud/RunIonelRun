@@ -9,10 +9,14 @@ public class DoorManager : MonoBehaviour
     SpriteRenderer sr;
     BoxCollider2D bc;
 
+    AudioSource audioSource;
+    public AudioClip doorOpenSound;
+
     public void OpenDoor()
     {
         sr.sprite = doorOpen;
         bc.enabled = false;
+        audioSource.PlayOneShot(doorOpenSound, 0.5f);
     }
 
     // Start is called before the first frame update
@@ -20,5 +24,6 @@ public class DoorManager : MonoBehaviour
     {
         sr = GetComponent<SpriteRenderer>();
         bc = GetComponent<BoxCollider2D>();
+        audioSource = GetComponent<AudioSource>();
     }
 }
