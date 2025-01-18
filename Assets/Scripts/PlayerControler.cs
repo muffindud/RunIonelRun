@@ -100,7 +100,8 @@ public class PlayerControler : MonoBehaviour
         // touching the exit
         if (exitCollider.IsTouching(GetComponent<BoxCollider2D>()))
         {
-            Debug.Log("Exit");
+            // Debug.Log("Exit");
+            UnityEngine.SceneManagement.SceneManager.LoadScene("Game Won");
         }
     }
 }
