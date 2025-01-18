@@ -134,9 +134,9 @@ GameObject:
   - component: {fileID: 182242111}
   - component: {fileID: 182242110}
   - component: {fileID: 182242109}
-  - component: {fileID: 182242108}
+  - component: {fileID: 182242112}
   m_Layer: 5
-  m_Name: MainMenu
+  m_Name: Easy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -159,20 +159,8 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -122, y: -154}
-  m_SizeDelta: {x: 276, y: 104}
+  m_SizeDelta: {x: 144, y: 104}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &182242108
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 182242106}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d82ade8699c8e34da4bed7ceb2d0256, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &182242109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -217,9 +205,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 182242108}
-        m_TargetAssemblyTypeName: GameOverController, Assembly-CSharp
-        m_MethodName: LoadMainMenu
+      - m_Target: {fileID: 182242112}
+        m_TargetAssemblyTypeName: GameSelect, Assembly-CSharp
+        m_MethodName: LoadEasy
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -249,7 +237,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 161d9ad0497cfd24694ae70cfd013e12, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a6fff10d0ccbe1a42a21adc21291b8b8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -267,6 +255,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 182242106}
   m_CullTransparentMesh: 1
+--- !u!114 &182242112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 182242106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b572482e2fa23d54f83d84f471d868d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &213355312
 GameObject:
   m_ObjectHideFlags: 0
@@ -514,7 +514,7 @@ GameObject:
   - component: {fileID: 1278684949}
   - component: {fileID: 1278684948}
   m_Layer: 5
-  m_Name: Game Over
+  m_Name: Game Select
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -537,7 +537,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -0.000022309}
-  m_SizeDelta: {x: 647, y: 108}
+  m_SizeDelta: {x: 1241, y: 107}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1278684948
 MonoBehaviour:
@@ -559,7 +559,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e6016a2eab0065f46a1dacd417342105, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3fc1bac7a67b46d42977f7ddffa2d3db, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -817,7 +817,7 @@ GameObject:
   - component: {fileID: 1983337992}
   - component: {fileID: 1983337995}
   m_Layer: 5
-  m_Name: New
+  m_Name: Hard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -839,7 +839,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.576}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 200, y: -154}
+  m_AnchoredPosition: {x: 129, y: -154}
   m_SizeDelta: {x: 144, y: 104}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1983337992
@@ -887,8 +887,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1983337995}
-        m_TargetAssemblyTypeName: GameOverController, Assembly-CSharp
-        m_MethodName: LoadGameSelect
+        m_TargetAssemblyTypeName: GameSelect, Assembly-CSharp
+        m_MethodName: LoadHard
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -918,7 +918,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 026de0dd35f4a1d41b3736a6abad6dee, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0cb68c1398b6b574c8bfec9fed369afa, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -945,7 +945,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1983337989}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d82ade8699c8e34da4bed7ceb2d0256, type: 3}
+  m_Script: {fileID: 11500000, guid: b572482e2fa23d54f83d84f471d868d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
