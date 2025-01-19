@@ -86,7 +86,6 @@ public class PlayerControler : MonoBehaviour
             UnityEngine.SceneManagement.SceneManager.LoadScene("Main Menu");
         }
 
-        // if close to the door
         if (Vector2.Distance(transform.position, doorManager.transform.position) < 1f) {
             if (Input.GetKey(KeyCode.F))
             {
@@ -97,11 +96,9 @@ public class PlayerControler : MonoBehaviour
             }
         }
 
-        // touching the exit
         if (exitCollider.IsTouching(GetComponent<BoxCollider2D>()))
         {
-            // Debug.Log("Exit");
-            UnityEngine.SceneManagement.SceneManager.LoadScene("Game Won");
+            UnityEngine.SceneManagement.SceneManager.LoadScene("Outro");
         }
     }
 }
