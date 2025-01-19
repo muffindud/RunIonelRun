@@ -6,11 +6,11 @@ public class GameSelect : MonoBehaviour
 {
     public void LoadEasy()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Level 1");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Intro 1 to easy");
     }
 
     public void LoadHard()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("LevelHard");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Intro 1 to hard");
     }
 }
